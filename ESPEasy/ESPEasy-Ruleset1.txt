@@ -1,0 +1,42 @@
+// -------------------------------------------------------
+// Setzen der Pulse pro kWh pro Zählereinheit
+// -------------------------------------------------------
+//
+On System#Boot do
+  let,11,101     // Stromzähler 1: 100 Pulse pro kWh
+  let,12,1001    // Stromzähler 2: 1000 Pulse pro kWh
+  let,13,1001    // Stromzähler 3: 1000 Pulse pro kWh
+endon
+
+
+// -------------------------------------------------------
+// Upload der Divisoren zur Homematic
+// -------------------------------------------------------
+//
+On WiFi#Connected do
+  SendToHTTP 192.168.178.160,8181,/egal.exe?ret=dom.GetObject(%22StromCounter1Divisor%22).State([var#11])
+  SendToHTTP 192.168.178.160,8181,/egal.exe?ret=dom.GetObject(%22StromCounter2Divisor%22).State([var#12])
+  SendToHTTP 192.168.178.160,8181,/egal.exe?ret=dom.GetObject(%22StromCounter3Divisor%22).State([var#13])
+endon
+
+// -------------------------------------------------------
+// aktuelles Total geteilt durch Pulse pro kWh = Zählerstand
+// -------------------------------------------------------
+//
+on StromCounter1#* do
+  let,1,%eventvalue2%/[var#11]
+  SendToHTTP 192.168.178.160,8181,/egal.exe?ret=dom.GetObject(%22StromCounter1TotalAkt%22).State(%eventvalue2%)
+  SendToHTTP 192.168.178.160,8181,/egal.exe?ret=dom.GetObject(%22StromCounter1Stand%22).State([var#1])
+endon
+
+on StromCounter2#* do
+  let,2,%eventvalue2%/[var#12]
+  SendToHTTP 192.168.178.160,8181,/egal.exe?ret=dom.GetObject(%22StromCounter2TotalAkt%22).State(%eventvalue2%)
+  SendToHTTP 192.168.178.160,8181,/egal.exe?ret=dom.GetObject(%22StromCounter2Stand%22).State([var#2])
+endon
+
+on StromCounter3#* do
+  let,3,%eventvalue2%/[var#13]
+  SendToHTTP 192.168.178.160,8181,/egal.exe?ret=dom.GetObject(%22StromCounter3TotalAkt%22).State(%eventvalue2%)
+  SendToHTTP 192.168.178.160,8181,/egal.exe?ret=dom.GetObject(%22StromCounter3Stand%22).State([var#3])
+endon
