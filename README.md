@@ -82,7 +82,19 @@ on StromCounter3#* do
 endon
 ```
 
-## Kommandos
+# Stromzähler Eltako
+
+Auswerten möchte ich Stromzähler von Eltako des Typs DSZ12 und DSZ15. Über die S0 Schnittstelle wird folgendes beschrieben:
+
+
+Impulsausgang S0 nach DIN EN 62053-31, 
+potenzialfrei durch einen Optokoppler, 
+max. 30VDC/2OmA u. min.5VDC. 
+Impedanz100 Ohm, 
+Impulslänge 50ms,
+100Imp./kWh
+
+# Kommandos
 
 ### Übertragung per HTTP
 
