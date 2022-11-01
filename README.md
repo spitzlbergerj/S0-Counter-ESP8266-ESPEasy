@@ -99,6 +99,8 @@ Auswerten möchte ich Stromzähler von Eltako des Typs DSZ12 und DSZ15. Über di
 
 * 100 Imp./kWh (DSZ12) bzw. 1000 Imp./KWH (DSZ15) 
 
+Laut Datenblatt soll die Ansteuerung also mit mindestens 5 Volt erfolgen. Viele andere Projekte zeigen, dass die 3V3 der GPIO Pins auch ausreichen sollten. 
+
 
 # Kommandos
 
