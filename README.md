@@ -97,7 +97,7 @@ Auswerten möchte ich Stromzähler von Eltako des Typs DSZ12 und DSZ15. Über di
 
 * Impulslänge 50ms
 
-* 100Imp./kWh
+* 100 Imp./kWh (DSZ12) bzw. 1000 Imp./KWH (DSZ15) 
 
 
 # Kommandos
