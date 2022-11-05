@@ -112,6 +112,36 @@ Ich sende die Daten über Rules an Systemvariable der Homematic. Die Veränderun
 
 <img src="https://github.com/spitzlbergerj/S0-Counter-ESP8266-ESPEasy/blob/main/img/node-red-flow.png"  width="400">
 
+
+## Display Steuerung
+
+Das Display wird über node red ein- und ausgeschaltet. Wenn das Garagentor geöffnet wird, wird das Kommando
+```
+http://192.168.178.146/tools?cmd=OLEDCMD%2Con
+```
+abgesetzt. Wird es geschlossen, wird das Kommando
+```
+http://192.168.178.146/tools?cmd=OLEDCMD%2Con
+```
+abgesetzt.
+
+Um das Display manuell aktivieren zu können, wird ein Taster angebracht. Dieser wird über ein Device gesteuert und über Rules wird das Display ein- bzw. ausgeschaltet:
+
+<img src="https://github.com/spitzlbergerj/S0-Counter-ESP8266-ESPEasy/blob/main/img/ESPEasy-S0-Counter-Device-Switch.png"  width="400">
+
+```
+// --------------------------------------------------------
+// Display On Taster
+// --------------------------------------------------------
+on DisplayOn#State=0 do
+   OLEDCMD,on
+endon
+
+on DisplayOn#State=1 do
+   OLEDCMD,off
+endon
+```
+
 # Kommandos
 
 ### Übertragung per HTTP
