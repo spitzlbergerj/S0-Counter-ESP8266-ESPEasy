@@ -102,6 +102,16 @@ Auswerten möchte ich Stromzähler von Eltako des Typs DSZ12 und DSZ15. Über di
 Laut Datenblatt soll die Ansteuerung also mit mindestens 5 Volt erfolgen. Viele andere Projekte zeigen, dass die 3V3 der GPIO Pins auch ausreichen sollten. 
 
 
+# Verarbeitung in Homematic und node red
+
+Die Variablen eines D1 mini (Pro) devices überleben einen Neustart nicht. Nach einem Neustart beginnen also alle Zähler wieder bei 0. Damit muss ein Neustart erkannt und in den Daten abgefangen werden.
+
+Ich sende die Daten über Rules an Systemvariable der Homematic. Die Veränderung derselben frage ich über node red ab. Stelle ich dort fest, dass ein neuer Wert kleiner ist, als der davor gemeldete Wert, gehe ich von einem Neustart des ESP aus. Dann addiere ich alten und neuen Wert und setze diese als neue Basis. Außerdem warne ich über eine E-Mail, so dass die Zählerstände noch manuell kontrolliert und ggf. korrigiert werden können.
+
+<img src="https://github.com/spitzlbergerj/S0-Counter-ESP8266-ESPEasy/blob/main/img/Homematic-Systemvariable.png"  width="400">
+
+<img src="https://github.com/spitzlbergerj/S0-Counter-ESP8266-ESPEasy/blob/main/img/node-red-flow.png"  width="400">
+
 # Kommandos
 
 ### Übertragung per HTTP
