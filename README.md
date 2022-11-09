@@ -2,7 +2,7 @@
 
 Dies ist ein einfacher S0 Counter zum "Digitalisieren" von Stromzählern mit S0 Schnittstelle auf Basis von Wemos D1 mini pro ESP8266 mit ESPEasy. Die ausgelesenen Werte werden an eine Homematic übertragen. Dort bzw. in Node-red erfolgt dann die Auswertung und auch die Sicherung des alten Zählerstandes bei einem Stromausfall am ESP8266, da dort die Werte nicht persistent gespeichert werden.
 
-Achtung: Dies ist eine "revisionssichere" Digitalisierung des Zählerstandes! Es können Pulse verloren gehen, der Zählerstand kann bei Stromausfall am ESP8266 verloren gehen, usw.
+Achtung: Dies ist KEINE "revisionssichere" Digitalisierung des Zählerstandes! Es können Pulse verloren gehen, der Zählerstand kann bei Stromausfall am ESP8266 verloren gehen, usw.
 
 Dies ist work in progress!
 
