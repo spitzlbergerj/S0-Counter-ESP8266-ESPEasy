@@ -7,11 +7,19 @@ Achtung: Dies ist eine "revisionssichere" Digitalisierung des Zählerstandes! Es
 Dies ist work in progress!
 
 
-## D1 mini - Layout
+## D1 mini Pro
 
-![ESP8266 D1 Mini](https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2019/05/ESP8266-WeMos-D1-Mini-pinout-gpio-pin.png?w=715&quality=100&strip=all&ssl=1)
+Für dieses Projekt verwende ich eine D1 mini Pro, da an diesen eine externe WLAN Antenne angeschlossen werden kann. Das Gerät soll schließlich im Stromzählerkasten mit vielen Kabeln, Metallschienen etc. hängen. Da ist das WLAN Signal nicht mehr wirklich gut. Mit einer externen Antenne kann ich diese außen an den Stromzählerkasten anbringen.
 
-Ich verwende jedoch einen D1 mini Pro, an den eine externe WLAN Antenne angeschlossen werden kann. Hierzu ist auf dem D1 mini Pro ein SMD Widerstand umzulöten!
+### Layout
+
+![ESP8266 D1 Mini pro](https://www.filipeflop.com/wp-content/uploads/2022/01/esp8266-wemos-d1-mini-pro-pinout.jpg)
+
+### externe Antenne
+
+Um die externe Antenne nutzen zu können, ist der SMD 0 Ohm Widerstand umzulöten:
+
+![ESP8266 D1 Mini Pro - Antennenanschluß](https://arduino-projekte.info/wp-content/uploads/elementor/thumbs/wemos_antenne-pm1skp0ltkpv1vnre8yt1z50pxe3kp5mzbhszrefug.png)
 
 ## Schaltplan
 
